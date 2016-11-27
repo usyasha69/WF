@@ -26,9 +26,8 @@
         </activity>
         <provider
             android:authorities="${authority}"
-            android:name="database.WFContentProvider"
-            android:exported="true"/>
-        
+            android:name=".database.WFContentProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>
