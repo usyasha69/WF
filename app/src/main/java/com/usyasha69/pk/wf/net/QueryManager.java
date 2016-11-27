@@ -1,6 +1,6 @@
 package com.usyasha69.pk.wf.net;
 
-import com.usyasha69.pk.wf.model.FullWeatherModel;
+import com.usyasha69.pk.wf.model.ParsingWeatherModel;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -20,12 +20,12 @@ public class QueryManager {
     private interface WeatherAPI {
         @GET("/data/2.5/forecast/daily")
         void getWeatherByCity(@Query("q") String city, @Query("cnt") int cnt,
-                              @Query("appid") String appid, Callback<FullWeatherModel> callback);
+                              @Query("appid") String appid, Callback<ParsingWeatherModel> callback);
 
         @GET("/data/2.5/forecast/daily")
         void getWeatherByCoordinates(@Query("lat") String lat, @Query("lon") String lon,
                                      @Query("cnt") int cnt, @Query("appid") String appid,
-                                     Callback<FullWeatherModel> callback);
+                                     Callback<ParsingWeatherModel> callback);
     }
 
     private static void initialize() {
@@ -37,12 +37,12 @@ public class QueryManager {
         weatherAPI = restAdapter.create(WeatherAPI.class);
     }
 
-    public static void getWeatherByCity(String city, int cnt, Callback<FullWeatherModel> callback) {
+    public static void getWeatherByCity(String city, int cnt, Callback<ParsingWeatherModel> callback) {
         weatherAPI.getWeatherByCity(city, cnt, OPEN_WEATHER_MAP_APPID_KEY, callback);
     }
 
     public static void getWeatherByCoordinates(String lat, String lon, int cnt,
-                                               Callback<FullWeatherModel> callback) {
+                                               Callback<ParsingWeatherModel> callback) {
         weatherAPI.getWeatherByCoordinates(lat, lon, cnt, OPEN_WEATHER_MAP_APPID_KEY, callback);
     }
 }
