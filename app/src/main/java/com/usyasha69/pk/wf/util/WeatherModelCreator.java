@@ -50,7 +50,7 @@ public class WeatherModelCreator {
         ArrayList<Double> pressure = new ArrayList<>();
         ArrayList<Integer> humidity = new ArrayList<>();
         ArrayList<String> weather = new ArrayList<>();
-        ArrayList<Double> speed = new ArrayList<>();
+        ArrayList<Double> windSpeed = new ArrayList<>();
         ArrayList<Integer> deg = new ArrayList<>();
         ArrayList<Integer> clouds = new ArrayList<>();
         ArrayList<Double> rain = new ArrayList<>();
@@ -67,7 +67,7 @@ public class WeatherModelCreator {
             pressure.add(list.pressure);
             humidity.add(list.humidity);
             weather.add(list.weather.get(DEFAULT_WEATHER_INDEX).description);
-            speed.add(list.speed);
+            windSpeed.add(list.speed);
             deg.add(list.deg);
             clouds.add(list.clouds);
             rain.add(list.rain);
@@ -85,7 +85,7 @@ public class WeatherModelCreator {
         detailedWeatherModel.pressure = pressure;
         detailedWeatherModel.humidity = humidity;
         detailedWeatherModel.weather = weather;
-        detailedWeatherModel.speed = speed;
+        detailedWeatherModel.windSpeed = windSpeed;
         detailedWeatherModel.deg = deg;
         detailedWeatherModel.clouds = clouds;
         detailedWeatherModel.rain = rain;

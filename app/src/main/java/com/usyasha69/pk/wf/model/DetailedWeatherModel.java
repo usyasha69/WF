@@ -20,7 +20,7 @@ public class DetailedWeatherModel implements Parcelable {
     public ArrayList<Double> pressure;
     public ArrayList<Integer> humidity;
     public ArrayList<String> weather;
-    public ArrayList<Double> speed;
+    public ArrayList<Double> windSpeed;
     public ArrayList<Integer> deg;
     public ArrayList<Integer> clouds;
     public ArrayList<Double> rain;
@@ -44,7 +44,7 @@ public class DetailedWeatherModel implements Parcelable {
         if (!pressure.equals(that.pressure)) return false;
         if (!humidity.equals(that.humidity)) return false;
         if (!weather.equals(that.weather)) return false;
-        if (!speed.equals(that.speed)) return false;
+        if (!windSpeed.equals(that.windSpeed)) return false;
         if (!deg.equals(that.deg)) return false;
         if (!clouds.equals(that.clouds)) return false;
         return rain.equals(that.rain);
@@ -65,7 +65,7 @@ public class DetailedWeatherModel implements Parcelable {
         result = 31 * result + pressure.hashCode();
         result = 31 * result + humidity.hashCode();
         result = 31 * result + weather.hashCode();
-        result = 31 * result + speed.hashCode();
+        result = 31 * result + windSpeed.hashCode();
         result = 31 * result + deg.hashCode();
         result = 31 * result + clouds.hashCode();
         result = 31 * result + rain.hashCode();
@@ -87,7 +87,7 @@ public class DetailedWeatherModel implements Parcelable {
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
                 ", weather=" + weather +
-                ", speed=" + speed +
+                ", windSpeed=" + windSpeed +
                 ", deg=" + deg +
                 ", clouds=" + clouds +
                 ", rain=" + rain +
@@ -114,7 +114,7 @@ public class DetailedWeatherModel implements Parcelable {
         dest.writeList(this.pressure);
         dest.writeList(this.humidity);
         dest.writeStringList(this.weather);
-        dest.writeList(this.speed);
+        dest.writeList(this.windSpeed);
         dest.writeList(this.deg);
         dest.writeList(this.clouds);
         dest.writeList(this.rain);
@@ -145,8 +145,8 @@ public class DetailedWeatherModel implements Parcelable {
         this.humidity = new ArrayList<>();
         in.readList(this.humidity, Integer.class.getClassLoader());
         this.weather = in.createStringArrayList();
-        this.speed = new ArrayList<>();
-        in.readList(this.speed, Double.class.getClassLoader());
+        this.windSpeed = new ArrayList<>();
+        in.readList(this.windSpeed, Double.class.getClassLoader());
         this.deg = new ArrayList<>();
         in.readList(this.deg, Integer.class.getClassLoader());
         this.clouds = new ArrayList<>();
